@@ -51,8 +51,8 @@ export default {
 
 <style>
   .container {
-    width : 1440px;
-    height : 900px;
+    width: 1440px;
+    height: 900px;
     background: rgb(189,15,77);
     background: linear-gradient(90deg, rgba(189,15,77,1) 0%, rgba(189,15,77,1) 50%, rgba(203,41,100,1) 50%);
   }
@@ -111,5 +111,41 @@ export default {
   .icon {
     width: 30px;
     height: 30px;
+  }
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 100vw;
+      height: 100vh;
+    }
+    h1 {
+      letter-spacing: 9px;
+      margin-top: 30px;
+    }
+    .pop-card {
+      margin-top: 30px;
+      width: 60vw;
+      height: 380px;
+    }
+    .navbar {
+      flex-direction: column;
+      margin-top: 40px;
+      width: 100vw;
+      font-size: 14px;
+      margin-left: 50px;
+    }
+    .profile {
+      width: 40px;
+      height: 40px;
+    }
+    .navbar p {
+      letter-spacing: 10px;
+    }
+    .profile {
+      order: 1;
+    }
+    .item {
+      order: 2;
+      margin-top: 25px;
+    }
   }
 </style>
