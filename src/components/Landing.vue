@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="container-center">
-      <h1>AQUILA AVEION</h1>
+      <h1>{{ content.name }}</h1>
       <div class="pop-card">
       </div>
       <div class="navbar">
@@ -14,15 +14,37 @@
       </div>
     </div>
     <div class="container-side">
-      <a href="https://www.instagram.com">Insta Link</a>
-      <font-awesome-icon :icon="['fab', 'instagram']" />
-    </div>
+      <a :href="`https://www.instagram.com/${content.social_media.instagram}`">
+      <font-awesome-icon size="3x" :icon="['fab', 'instagram']" />
+      </a>
+      <a :href="`https://www.twitter.com/${content.social_media.twitter}`">
+      <font-awesome-icon size="3x" :icon="['fab', 'twitter-square']" />
+      </a>
+      <a :href="`https://www.snapchat.com/${content.social_media.snapchat}`">
+      <font-awesome-icon size="3x" :icon="['fab', 'snapchat-square']" />
+      </a>
+      <a :href="`https://www.email.com/${content.social_media.email}`">
+      <font-awesome-icon size="3x" icon="envelope-square" />
+      </a>
+    </div> 
   </div>
 </template>
-npm install --save axios vue-axios
 <script>
+
+var axios = require('axios')
+
 export default {
-  name: 'Landing'
+  name: 'Landing',
+  data () {
+    return {
+      content: {}
+    }
+  },
+  mounted () {
+    axios
+      .get('https://hirng-x2021.glitch.me/api')
+      .then(response => (this.content = response.data))
+  }
 }
 </script>
 
@@ -69,5 +91,25 @@ export default {
   }
   .navbar p {
     letter-spacing: 12px;
+  }
+  .container-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .container-side a {
+    text-decoration: none;
+    color: white;
+  }
+  .container-side a:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  .icon {
+    width: 30px;
+    height: 30px;
   }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Landing/>
-    <font-awesome-icon :icon="['fas', 'robot']"/>
   </div>
 </template>
 
